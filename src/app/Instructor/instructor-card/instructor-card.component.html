@@ -1,0 +1,18 @@
+<div class="our-team box">
+    <div class="top-bar"></div>
+    <div class="top">
+        <i class="fa fa-check-circle" aria-hidden="true"></i>
+    </div>
+    <div class="content">
+        <img src="{{instructorData.profile_pic}}"
+            alt="">
+        <strong>{{instructorData.fname}} {{instructorData.lname}}</strong>
+        <p>{{instructorData.email}}</p>
+    </div>
+    <div class="btn">
+        <a routerLink='/course'><i class="fa fa-eye" aria-hidden="true"></i>More Info</a>
+    </div>
+</div>
+
+<router-outlet></router-outlet>
+

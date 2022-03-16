@@ -1,0 +1,165 @@
+<div class="container-fluid section">
+  <div class="row">
+    <!-- <div class="col-3 side bg-light" [style.top.px]="height" #side (scroll)="onWindowScroll(side)"> -->
+    <div class="col-12 col-md-4 col-lg-3 side">
+      <div class="sectionTitle">
+        <h2>course content</h2>
+      </div>
+      <div class="contentList">
+        <div (click)="section1Clicked()" class="sideTab">
+          Section 1
+        </div>
+        <div (click)="section2Clicked()" class="sideTab">
+          Section 2
+        </div>
+        <div (click)="section3Clicked()" class="sideTab">
+          Section 3
+        </div>
+        <div (click)="section4Clicked()" class="sideTab">
+          Section 4
+        </div>
+        <div (click)="section5Clicked()" class="sideTab">
+          Section 5
+        </div>
+        <div class="sectionTitle">
+          <h2>tests</h2>
+        </div>
+        <div class="tests" *ngFor='let quiz of test_course'>
+          <div (click)="testClicked(quiz.id)" class="sideTab">
+            {{quiz.title}}
+          </div>
+        </div>
+
+        <div class="sectionTitle">
+          <h2>Course Posts</h2>
+        </div>
+        <div class="posts">
+          <div class="sideTab" (click)="getpost()">
+            Posts
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-8 col-lg-9 content">
+      <div class="contentContainer">
+        <div *ngIf="secNum==1" class="contentItem">
+          <iframe src="https://www.youtube.com/embed/hMJXrpn8c8Y" allowfullscreen></iframe>
+          <h2>{{section[0].title}}</h2>
+          <p>{{section[0].courseContent}}</p>
+        </div>
+        <div *ngIf="secNum==2" class="contentItem">
+          <iframe src="https://www.youtube.com/embed/FIIHEHklga0" allowfullscreen></iframe>
+          <h2>{{section[1].title}}</h2>
+          <p>{{section[1].courseContent}}</p>
+        </div>
+        <div *ngIf="secNum==3" class="contentItem">
+          <iframe src="https://www.youtube.com/embed/mrdJWYVdvVg" allowfullscreen></iframe>
+          <h2>{{section[2].title}}</h2>
+          <p>{{section[2].courseContent}}</p>
+        </div>
+        <div *ngIf="secNum==4" class="contentItem">
+          <iframe src="https://www.youtube.com/embed/jCM7unYh71E" allowfullscreen></iframe>
+          <h2>{{section[3].title}}</h2>
+          <p>{{section[3].courseContent}}</p>
+        </div>
+        <div *ngIf="secNum==5" class="contentItem">
+          <iframe src="https://www.youtube.com/embed/o7AJVMrwHUg" allowfullscreen></iframe>
+          <h2>{{section[4].title}}</h2>
+          <p>{{section[4].courseContent}}</p>
+        </div>
+        <div *ngIf="test" class="testContainer">
+          <div *ngIf="ques?.length>0" class="alert alert-success" role="alert">
+            <h2 class="alert-heading">Best Wishes!</h2>
+            <p>Each question has {{testInfo?.max_score / ques?.length}} points & total points are
+              {{testInfo?.max_score}}
+              Points.</p>
+          </div>
+
+          <div *ngIf="ques?.length<=0" class="alert alert-info" role="alert">
+            <h2 class="alert-heading">Hello Dear Student!</h2>
+            <p>There're No Questions for <strong>{{testInfo?.title}}</strong> test yet.</p>
+            <hr>
+            <p class="mb-0"><strong>Browse it Later!</strong>, When Your Instructor Add Questions to it
+            </p>
+          </div>
+
+          <div class="formBx">
+            <form class="testDetailsForm row" #testForm="ngForm" (ngSubmit)="testSubmit(testForm)">
+              <div class="quesCard" *ngFor="let question of ques; let i = index">
+                <h2>Q{{i+1}}: {{question.question}}?</h2>
+                <div class="form-check">
+                  <input required class="form-check-input" type="radio" ngModel name="question{{i+1}}"
+                    id="exampleRadios1{{i}}" [value]="question.answer1">
+                  <label class="form-check-label" for="exampleRadios1{{i}}">
+                    {{question.answer1}}
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input required class="form-check-input" type="radio" ngModel name="question{{i+1}}"
+                    id="exampleRadios2{{i}}" [value]="question.answer2">
+                  <label class="form-check-label" for="exampleRadios2{{i}}">
+                    {{question.answer2}}
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input required class="form-check-input" type="radio" ngModel name="question{{i+1}}"
+                    id="exampleRadios3{{i}}" [value]="question.answer3">
+                  <label class="form-check-label" for="exampleRadios3{{i}}">
+                    {{question.answer3}}
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input required class="form-check-input" type="radio" ngModel name="question{{i+1}}"
+                    id="exampleRadios4{{i}}" [value]="question.answer4">
+                  <label class="form-check-label" for="exampleRadios4{{i}}">
+                    {{question.answer4}}
+                  </label>
+                </div>
+
+              </div>
+              <div *ngIf="ques?.length>0" class="submitBtn">
+                <button [disabled]="testForm.invalid" type="submit">submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div *ngIf="scoreView &&!test && secNum==0" class="result">
+          <h1>your score is {{score*(testInfo.max_score / ques.length)}}/{{testInfo.max_score}}</h1>
+          <div class="submitBtn">
+            <button routerLink="/course">Check More Courses</button>
+          </div>
+        </div>
+
+
+
+        <div *ngIf="postView" class="wrapper row">
+          <div *ngIf="post_course?.length<=0" class="alert alert-info" role="alert">
+            <h2 class="alert-heading">Hello Dear!</h2>
+            <p>There're No Posts for This Course yet.</p>
+            <hr>
+            <p class="mb-0"><strong>Browse it Later!</strong>, When There're New Published Posts
+            </p>
+          </div>
+          <div class="blog_post col-12" *ngFor="let post of post_course; let i = index">
+            <div class="postHeader">
+              <div class="img_pod">
+                <img src="http://127.0.0.1:8000/userImg/{{post.instructor_of_post.profile_pic}}" alt="Instructor image">
+              </div>
+              <h3>{{post.created_at.split('T',1)}}</h3>
+            </div>
+            <div class="postInfo">
+              <h1>{{post.title}}</h1>
+              <p>{{post.body}}</p>
+            </div>
+            <div class="postFooter">
+              <h3>Instructor/ {{post.instructor_of_post.fname}} {{post.instructor_of_post.lname}}</h3>
+              <h4>Course Name/ {{post.course_of_post.title}}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

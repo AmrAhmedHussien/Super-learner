@@ -1,0 +1,44 @@
+  <div class="course-item">
+
+    <div class="image-blog">
+      <img src="{{course.course_img}}" alt="" class="img-fluid" />
+    </div>
+
+    <div class="course-br">
+      <div class="course-title">
+        <h2>
+          <a routerLink='/course-content/{{course.id}}' title="">{{ course.title }}</a>
+        </h2>
+      </div>
+      <div class="course-desc">
+        <p *ngIf='user?.role=="student"'>
+          {{ course?.desc }}
+        </p>
+        <p *ngIf='user?.role=="instructor"'>{{ course?.desc }}</p>
+      </div>
+
+      <div class="course-rating">
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star-half"></i>
+      </div>
+
+      <div class="course-meta-bot">
+        <ul class="course-meta-data">
+          <li><i class="fa fa-calendar" aria-hidden="true"></i> 6 Month</li>
+          <li><i class="fa fa-users" aria-hidden="true"></i> 56 Student</li>
+          <li><i class="fa fa-book" aria-hidden="true"></i> 7 Books</li>
+        </ul>
+
+        <div class="action" *ngIf="role=='instructor'">
+          <a routerLink='/update/{{course.id}}' class="actionLink">{{action}}</a>
+        </div>
+
+        <div class="action" *ngIf="role=='student'">
+          <a routerLink='/course-content/{{course.id}}' class="actionLink">{{action}}</a>
+        </div>
+      </div>
+
+    </div>

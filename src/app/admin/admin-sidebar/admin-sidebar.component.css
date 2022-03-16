@@ -1,0 +1,37 @@
+aside {
+  height: 100vh !important;
+}
+
+a.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0 10px;
+  padding-left: 45px;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+a.nav-link p {
+  margin: 0 !important;
+}
+
+.main-sidebar .sidebar,
+.brand-link,
+.form-control-sidebar,
+.btn-sidebar {
+  background: #131418 !important;
+}
+
+.btn-sidebar {
+  transition: .3s ease !important;
+  -webkit-transition: .3s ease !important;
+  -moz-transition: .3s ease !important;
+  -ms-transition: .3s ease !important;
+  -o-transition: .3s ease !important;
+}
+
+.btn-sidebar:hover {
+  color: #eea530;
+}

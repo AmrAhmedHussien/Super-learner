@@ -1,0 +1,245 @@
+.alert-success {
+  color: #4C5A7D;
+}
+
+
+.side {
+  display: flex;
+  flex-direction: column;
+  padding: 0 25px 30px;
+  align-items: center;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.side .sectionTitle {
+  text-align: center;
+  padding: 20px 0;
+  width: 100%;
+}
+
+.side .sectionTitle h2 {
+  text-transform: capitalize;
+  color: #EEA530;
+  font-size: 27px;
+}
+
+.side .contentList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px 0;
+  width: 100%;
+}
+
+.side .contentList .sideTab {
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 35px 45px;
+  color: #4C5A7D;
+  cursor: pointer;
+  transition: .3s ease;
+  font-weight: bold;
+}
+
+.side .contentList .sideTab:hover {
+  background-color: #4C5A7D;
+  color: #FFF;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Content */
+.content {
+  padding-bottom: 30px;
+  padding-top: 20px;
+}
+
+.content .contentContainer .contentItem {
+  display: flex;
+  flex-direction: column;
+  gap: 20px 0;
+  padding: 10px;
+}
+
+.content .contentContainer .contentItem iframe {
+  height: 500px;
+  padding: 30px 10px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.content .contentContainer .contentItem h2 {
+  text-transform: capitalize;
+  color: #FFF;
+  background: #4C5A7D;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  width: fit-content;
+  padding: 20px;
+}
+
+.content .contentContainer .contentItem p {
+  text-transform: capitalize;
+  color: #4C5A7D;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  width: fit-content;
+  padding: 20px;
+  line-height: 2.2;
+}
+
+.testContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px 0;
+}
+
+.testContainer .alert h2,
+.testContainer .alert p {
+  text-transform: capitalize;
+}
+
+.testDetailsForm {
+  gap: 10px 0;
+  padding: 20px;
+}
+
+.quesCard {
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}
+
+.quesCard h2 {
+  color: #4C5A7D;
+}
+
+.quesCard .form-check-label {
+  letter-spacing: 1px;
+  font-size: 16px;
+}
+
+.submitBtn {
+  padding: 0;
+}
+
+.submitBtn button {
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  padding: 15px 25px;
+  border: none;
+  color: #4C5A7D;
+  background: #FFF;
+  transition: .3s ease;
+  -webkit-transition: .3s ease;
+  -moz-transition: .3s ease;
+  -ms-transition: .3s ease;
+  -o-transition: .3s ease;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+.submitBtn button:hover {
+  color: #FFF;
+  background: #4C5A7D;
+}
+
+.result {
+  box-shadow: 0 3px 10px rgb(0 0 0 / 20%);
+  text-transform: capitalize;
+  background: #4C5A7D;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 30px;
+  gap: 20px 0;
+}
+
+.result h1 {
+  color: #FFF;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+
+
+
+
+
+.wrapper {
+  display: flex;
+  padding: 10px 30px;
+  gap: 15px 0;
+}
+
+.blog_post {
+  padding: 30px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 1px 1px 2rem rgba(0, 0, 0, 0.3);
+}
+
+.postHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media screen and (max-width:768px) {
+  .postHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px 0;
+  }
+}
+
+.postHeader h3 {
+  margin: 0;
+  padding: 0;
+  color: #999;
+  font-size: 1.25rem;
+}
+
+.blog_post .img_pod {
+  height: 110px;
+  width: 110px;
+  background: linear-gradient(90deg, #ff9966, #ff5e62);
+  box-shadow: 1px 1px 2rem rgba(0, 0, 0, 0.3);
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blog_post img {
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  box-shadow: 1px 1px 2rem rgba(0, 0, 0, 0.3);
+}
+
+.postInfo h1 {
+  margin: 15px 0;
+  font-size: 2.5rem;
+  letter-spacing: 0.5px;
+  color: #333;
+}
+
+.postInfo p {
+  line-height: 1.6;
+  margin: 0 0 3.5rem 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.postFooter h3 {
+  color: #999;
+  font-size: 1.25rem;
+}
+
+.postFooter h4 {
+  color: #ff5e62;
+  font-size: 1rem;
+}
