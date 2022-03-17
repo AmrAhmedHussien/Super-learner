@@ -54,12 +54,14 @@ export class CreateTestComponent implements OnInit {
       ((res) => { this.data = res });
     this.message = "Test Added"
     window.location.reload();
+    
   }
   CheckTests(){
     console.log("hello");
 
     this.testService.gettest(this.testget).subscribe
     ((res) => { this.test = res });
+    window.location.reload();
   }
   addQuestion(){
     console.log(this.newQuestion);
