@@ -53,6 +53,7 @@ export class CreateTestComponent implements OnInit {
     this.testService.addtest(this.newCourse).subscribe
       ((res) => { this.data = res });
     this.message = "Test Added"
+    window.location.reload();
   }
   CheckTests(){
     console.log("hello");
