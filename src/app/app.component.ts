@@ -20,7 +20,7 @@ export class AppComponent {
   ngOnInit(): void {
 
 
-    console.log("fix");
+    
     
     this.userService.userlogin().subscribe((res => this.user = res));
 
