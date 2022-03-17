@@ -11,4 +11,7 @@ export class PaymentService {
   payment(user:object){
     return this.httpclient.post(`${environment.baseUrl}pay`,user)
   }
+  status(){
+    return this.httpclient.get(`${environment.baseUrl}status`)
+  }
 }
