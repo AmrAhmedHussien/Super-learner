@@ -112,7 +112,7 @@ const routes: Routes = [
     canActivate: [AuthService],
   },
   { path: 'home', component: HomeComponent },
-
+  { path: '/', component: HomeComponent },
   {
     path: 'aboutUs',
     component: AboutFirstSecComponent,
